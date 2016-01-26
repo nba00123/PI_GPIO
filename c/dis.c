@@ -49,15 +49,12 @@ void loop()
 		digitalWrite(ledpin,LOW);
 }
 int pulseIn(int pin,int state){
-	int a=0;
-	printf("%d %d\n", state,digitalRead(pin));
+	int a=clock();//从这开始计时;
+	// printf("%d %d\n", state,digitalRead(pin));
 	while(state!=digitalRead(pin)){
-		a=clock();//从这开始计时
-		printf("%d\n", a);
-	};
-	while(state==digitalRead(pin)){
 		
 	};
+
 	int b=clock();//到这结束
 	int c=b-a;//算出来的单位是毫秒
 }
