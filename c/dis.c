@@ -8,7 +8,7 @@
 int inputPin=4; // 定义超声波信号接收接口
 int outputPin=5; // 定义超声波信号发出接口
 int ledpin=13;
-void setup()
+int setup()
 {
 	int fd ;
   	int count ;
@@ -28,9 +28,6 @@ void setup()
 	pinMode(ledpin,OUTPUT);
 	pinMode(inputPin, INPUT);
 	pinMode(outputPin, OUTPUT);
-	while(1){
-		loop();
-	}
 }
 void loop()
 {
@@ -49,4 +46,13 @@ void loop()
 	}//如果距离小于50厘米小灯熄灭
 	else
 	digitalWrite(ledpin,LOW);
+}
+
+int main(){
+	int err;
+	err=setup();
+	if(err)return -1;
+	while(1){
+		loop();
+	}
 }
