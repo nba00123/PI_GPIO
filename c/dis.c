@@ -57,8 +57,10 @@ int pulseIn(int pin,int state){
 	int c=b-a;//算出来的单位是毫秒
 }
 int main(){
+	printf("%s\n", "hello");
 	int err;
 	err=setup();
+	printf("err:%d\n", err);
 	if(err)return -1;
 	while(1){
 		loop();
