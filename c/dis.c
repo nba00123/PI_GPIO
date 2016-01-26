@@ -50,8 +50,8 @@ void loop()
 }
 int pulseIn(int pin,int state){
 	int a=clock();//从这开始计时
-	while(state!=digitalRead(pin)){
-
+	if(state!=digitalRead(pin)){
+		return 0;
 	}
 	int b=clock();//到这结束
 	int c=b-a;//算出来的单位是毫秒
