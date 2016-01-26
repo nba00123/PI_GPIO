@@ -49,9 +49,12 @@ void loop()
 		digitalWrite(ledpin,LOW);
 }
 int pulseIn(int pin,int state){
-	int a=clock();//从这开始计时;
+	int a;//从这开始计时;
 	// printf("%d %d\n", state,digitalRead(pin));
 	while(state!=digitalRead(pin)){
+		a=clock();
+	};
+	while(state==digitalRead(pin)){
 		
 	};
 
