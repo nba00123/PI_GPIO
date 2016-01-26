@@ -51,10 +51,11 @@ void loop()
 int pulseIn(int pin,int state){
 	int a=0;
 	printf("%d %d\n", state,digitalRead(pin));
-	while(state==digitalRead(pin)){
-		a=clock();//从这开始计时
-	};
 	while(state!=digitalRead(pin)){
+		a=clock();//从这开始计时
+		printf("%d\n", a);
+	};
+	while(state==digitalRead(pin)){
 		
 	};
 	int b=clock();//到这结束
