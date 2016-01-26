@@ -1,4 +1,4 @@
-##ifndef RPI_TO_WIRINGPI
+#ifndef RPI_TO_WIRINGPI
 // #define PI_01 0
 // #define PI_02 0
 #define RPI_03 8
