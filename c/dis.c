@@ -61,7 +61,7 @@ int main(){
 	int err;
 	err=setup();
 	printf("err:%d\n", err);
-	if(err)return -1;
+	if(err==1)return -1;
 	while(1){
 		loop();
 	}
