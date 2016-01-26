@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
 #include <wiringPi.h>
 #include <stdlib.h>
 #include "wiringSerial.h"
@@ -7,11 +10,27 @@ int outputPin=5; // 定义超声波信号发出接口
 int ledpin=13;
 void setup()
 {
-	serialOpen(9600)
+	int fd ;
+  	int count ;
+	if ((fd = serialOpen ("/dev/ttyAMA0", 9600)) < 0)
+  	{
+    	fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
+    	return 1 ;
+  	}
+
+  	if (wiringPiSetup () == -1)
+  	{
+    	fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
+    	return 1 ;
+  	}
+	// serialOpen(9600)
 	// Serial.begin(9600);
 	pinMode(ledpin,OUTPUT);
 	pinMode(inputPin, INPUT);
 	pinMode(outputPin, OUTPUT);
+	while(1){
+		loop();
+	}
 }
 void loop()
 {
