@@ -8,7 +8,7 @@
 // Trig接Arduino板的Digital 5口，触发测距；Echo接Digital 4口，接收距离信号。
 int inputPin=4; // 定义超声波信号接收接口
 int outputPin=5; // 定义超声波信号发出接口
-int ledpin=13;
+int ledpin=2;
 int setup()
 {
 	int fd ;
