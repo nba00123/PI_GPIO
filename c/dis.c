@@ -3,8 +3,8 @@
 #include <errno.h>
 #include <wiringPi.h>
 #include <stdlib.h>
-#include <time.h>
 #include "wiringSerial.h"
+#include "piLib.h"
 // Trig接Arduino板的Digital 5口，触发测距；Echo接Digital 4口，接收距离信号。
 int inputPin=4; // 定义超声波信号接收接口
 int outputPin=5; // 定义超声波信号发出接口
@@ -39,7 +39,7 @@ void loop()
 	digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 	int distance = pulseIn(inputPin, HIGH, 100000); // 读出脉冲时间
 	distance= distance/58; // 将脉冲时间转化为距离（单位：厘米）
-	printf("dis=%d\n",distance); //输出距离值 
+	printf("dis=%dcm\n",distance); //输出距离值 
 	delay(50); 
 	if (distance >=50)
 	{//如果距离大于50厘米小灯亮起
@@ -48,43 +48,7 @@ void loop()
 	else
 		digitalWrite(ledpin,LOW);
 }
-int pulseIn(int pin, int level, int timeout)
-{
-   struct timeval tn, t0, t1;
 
-   long micros;
-
-   gettimeofday(&t0, NULL);
-
-   micros = 0;
-
-   while (digitalRead(pin) != level)
-   {
-      gettimeofday(&tn, NULL);
-
-      if (tn.tv_sec > t0.tv_sec) micros = 1000000L; else micros = 0;
-      micros += (tn.tv_usec - t0.tv_usec);
-
-      if (micros > timeout) return 0;
-   }
-
-   gettimeofday(&t1, NULL);
-
-   while (digitalRead(pin) == level)
-   {
-      gettimeofday(&tn, NULL);
-
-      if (tn.tv_sec > t0.tv_sec) micros = 1000000L; else micros = 0;
-      micros = micros + (tn.tv_usec - t0.tv_usec);
-
-      if (micros > timeout) return 0;
-   }
-
-   if (tn.tv_sec > t1.tv_sec) micros = 1000000L; else micros = 0;
-   micros = micros + (tn.tv_usec - t1.tv_usec);
-
-   return micros;
-}
 // int pulseIn(int pin,int state){
 // 	int a;//从这开始计时;
 // 	// printf("%d %d\n", state,digitalRead(pin));
