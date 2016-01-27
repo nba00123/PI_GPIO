@@ -48,24 +48,60 @@ void loop()
 	else
 		digitalWrite(ledpin,LOW);
 }
-int pulseIn(int pin,int state){
-	int a;//从这开始计时;
-	// printf("%d %d\n", state,digitalRead(pin));
-	while(state!=digitalRead(pin)){
-		a=clock();
-	};
-	while(state==digitalRead(pin)){
-		
-	};
+int pulseIn(int pin, int level, int timeout)
+{
+   struct timeval tn, t0, t1;
 
-	int b=clock();//到这结束
-	int c=b-a;//算出来的单位是毫秒
+   long micros;
+
+   gettimeofday(&t0, NULL);
+
+   micros = 0;
+
+   while (digitalRead(pin) != level)
+   {
+      gettimeofday(&tn, NULL);
+
+      if (tn.tv_sec > t0.tv_sec) micros = 1000000L; else micros = 0;
+      micros += (tn.tv_usec - t0.tv_usec);
+
+      if (micros > timeout) return 0;
+   }
+
+   gettimeofday(&t1, NULL);
+
+   while (digitalRead(pin) == level)
+   {
+      gettimeofday(&tn, NULL);
+
+      if (tn.tv_sec > t0.tv_sec) micros = 1000000L; else micros = 0;
+      micros = micros + (tn.tv_usec - t0.tv_usec);
+
+      if (micros > timeout) return 0;
+   }
+
+   if (tn.tv_sec > t1.tv_sec) micros = 1000000L; else micros = 0;
+   micros = micros + (tn.tv_usec - t1.tv_usec);
+
+   return micros;
 }
+// int pulseIn(int pin,int state){
+// 	int a;//从这开始计时;
+// 	// printf("%d %d\n", state,digitalRead(pin));
+// 	while(state!=digitalRead(pin)){
+// 		a=clock();
+// 	};
+// 	while(state==digitalRead(pin)){
+		
+// 	};
+
+// 	int b=clock();//到这结束
+// 	int c=b-a;//算出来的单位是毫秒
+// }
 int main(){
-	printf("%s\n", "hello");
+	printf("%s\n", "距离测试");
 	int err;
 	err=setup();
-	printf("err:%d\n", err);
 	if(err==1)return -1;
 	while(1){
 		loop();
