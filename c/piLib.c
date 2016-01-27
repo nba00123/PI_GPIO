@@ -1,4 +1,5 @@
 #include <time.h>
+#include <wiringPi.h>
 
 int pulseIn(int pin, int level, int timeout)
 {
