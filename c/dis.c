@@ -40,7 +40,7 @@ void loop()
 	int distance = pulseIn(inputPin, HIGH, 100000); // 读出脉冲时间
 	distance= distance/58; // 将脉冲时间转化为距离（单位：厘米）
 	printf("dis=%dcm\n",distance); //输出距离值 
-	delay(50); 
+	delay(500); 
 	if (distance >=50)
 	{//如果距离大于50厘米小灯亮起
 		digitalWrite(ledpin,HIGH);
