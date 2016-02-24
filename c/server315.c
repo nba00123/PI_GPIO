@@ -37,7 +37,7 @@ void loop()
 	if(t<1)return;
 	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	if(t)<5;return;
-	int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
+	t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
 	if(t<1)return;
 	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	if(t<5)return;
