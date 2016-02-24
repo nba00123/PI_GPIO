@@ -50,22 +50,22 @@ void writeContent(int msg){
     digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 }
 void writeChecker(int len){
-    // int t=0;
-    // for(t;t<len;t++){
+    int t=0;
+    for(t;t<len;t++){
         digitalWrite(outputPin, LOW); // 使发出发出超声波信号接口低电平2μs
         delayMicroseconds(2);
         digitalWrite(outputPin, HIGH); // 使发出发出超声波信号接口高电平10μs，这里是至少10μs
         delayMicroseconds(10);
         
-    // }
+    }
     digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 }
 void loop()
 {
-    int len=1;
+    int len=3;
     writeChecker(len);
     writeContent(msg);
-    writeChecker(len);
+    //writeChecker(len);
     printf("-->%d\n", idx);
 }
 int main(){
