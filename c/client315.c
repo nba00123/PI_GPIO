@@ -69,7 +69,7 @@ void loop()
     printf("%s\n", idx);
 }
 int main(){
-    printf("%s\n", "距离测试");
+    printf("%s\n", "315m测试");
     int err;
     err=setup();
     if(err==1)return -1;
