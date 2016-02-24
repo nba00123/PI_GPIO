@@ -33,13 +33,13 @@ int setup()
 void loop()
 {
 	
-	int t = pulseIn(inputPin, HIGH, 100000); // 读出脉冲时间
+	int t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	printf("%d\n",t);
-	
+
 }
 
 int main(){
-	printf("%s\n", "距离测试");
+	printf("%s\n", "get 315m测试");
 	int err;
 	err=setup();
 	if(err==1)return -1;
