@@ -34,7 +34,7 @@ void loop()
 {
 	
 	int t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	printf("%d\n",t);
+	if(t)printf("%d\n",t);
 
 }
 
