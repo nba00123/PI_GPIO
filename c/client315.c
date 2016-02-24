@@ -33,14 +33,7 @@ int setup()
     // pinMode(inputPin, INPUT);
     pinMode(outputPin, OUTPUT);
 }
-void loop()
-{
-    int len=1;
-    writeChecker(len);
-    writeContent(msg);
-    writeChecker(len);
-    printf("%s\n", idx);
-}
+
 void writeContent(int msg){
     int t=0;
     for(t;t<8;t++){
@@ -67,7 +60,14 @@ void writeChecker(int len){
     // }
     digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 }
-
+void loop()
+{
+    int len=1;
+    writeChecker(len);
+    writeContent(msg);
+    writeChecker(len);
+    printf("%s\n", idx);
+}
 int main(){
     printf("%s\n", "距离测试");
     int err;
