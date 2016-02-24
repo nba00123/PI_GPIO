@@ -10,7 +10,7 @@
 int outputPin=5; // 定义超声波信号发出接口
 // int ledpin=2;
 char binbuf[32];
-char msg="7";
+int msg=7;
 int index=0;
 int setup()
 {
@@ -41,7 +41,7 @@ void loop()
     writeChecker(len);
     printf("%s\n", index);
 }
-void writeContent(char msg){
+void writeContent(int msg){
     for(t;t<8;t++){
         digitalWrite(outputPin, LOW); // 使发出发出超声波信号接口低电平2μs
         delayMicroseconds(2);
