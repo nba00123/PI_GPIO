@@ -45,10 +45,13 @@ void loop()
 	// if(t<5)return;
 	if(t){
 		int j=0;
+		char s="";
 		for(j=0;j<8;j++){
 			t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
-			printf("%d",t);
+			s+=t;
+			//printf("%d",t);
 		}
+		printf("%s\n",s);
 		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 		pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	}
