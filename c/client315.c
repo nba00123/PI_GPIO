@@ -11,7 +11,7 @@ int outputPin=5; // 定义超声波信号发出接口
 // int ledpin=2;
 char binbuf[32];
 int msg=7;
-int index=0;
+int idx=0;
 int setup()
 {
     int fd ;
@@ -39,9 +39,10 @@ void loop()
     writeChecker(len);
     writeContent(msg);
     writeChecker(len);
-    printf("%s\n", index);
+    printf("%s\n", idx);
 }
 void writeContent(int msg){
+    int t=0;
     for(t;t<8;t++){
         digitalWrite(outputPin, LOW); // 使发出发出超声波信号接口低电平2μs
         delayMicroseconds(2);
@@ -56,14 +57,14 @@ void writeContent(int msg){
     digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 }
 void writeChecker(int len){
-    int t=0;
-    for(t;t<len;t++){
+    // int t=0;
+    // for(t;t<len;t++){
         digitalWrite(outputPin, LOW); // 使发出发出超声波信号接口低电平2μs
         delayMicroseconds(2);
         digitalWrite(outputPin, HIGH); // 使发出发出超声波信号接口高电平10μs，这里是至少10μs
         delayMicroseconds(10);
         
-    }
+    // }
     digitalWrite(outputPin, LOW); // 保持发出超声波信号接口低电平
 }
 
@@ -72,10 +73,10 @@ int main(){
     int err;
     err=setup();
     if(err==1)return -1;
-    index=0;
+    idx=0;
     while(1){
         loop();
         delayMicroseconds(1000);
-        index++;
+        idx++;
     }
 }
