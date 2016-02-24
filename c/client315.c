@@ -62,7 +62,7 @@ void writeChecker(int len){
 }
 void loop()
 {
-    int len=3;
+    int len=2;
     writeChecker(len);
     writeContent(msg);
     //writeChecker(len);
