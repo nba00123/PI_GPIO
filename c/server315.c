@@ -40,7 +40,7 @@ void loop()
 	if(t){
 		int j=0;
 		for(j=0;j<8;j++){
-			t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+			t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 			printf("%d\n",t);
 		}
 		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
