@@ -66,7 +66,7 @@ void loop()
     writeChecker(len);
     writeContent(msg);
     writeChecker(len);
-    printf("%s\n", idx);
+    printf("-->%s\n", idx);
 }
 int main(){
     printf("%s\n", "315m测试");
