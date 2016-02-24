@@ -42,7 +42,7 @@ void loop()
 	//if(t<1)return;
 	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	// printf("%d",t);
-	if(t<5)return;
+	// if(t<5)return;
 	if(t){
 		int j=0;
 		for(j=0;j<8;j++){
