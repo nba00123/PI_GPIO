@@ -76,7 +76,7 @@ int main(){
     idx=0;
     while(1){
         loop();
-        delayMicroseconds(100000);
+        delayMicroseconds(1000000);
         idx++;
     }
 }
