@@ -33,7 +33,7 @@ int setup()
 void loop()
 {
 	
-	int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
+	int t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 	printf("%d  ",t);
 	return;
 	if(t<1)return;
