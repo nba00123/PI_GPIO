@@ -47,9 +47,11 @@ void loop()
 		int j=0;
 		// char s="";
 		for(j=0;j<8;j++){
+			delayMicroseconds(2);
 			t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 			// s+=t;
 			printf("%d	",t);
+
 		}
 		printf("%s\n","");
 		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
