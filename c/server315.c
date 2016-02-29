@@ -34,17 +34,17 @@ void loop()
 {
 	
 	int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
-	//if(t<1)return;
+	if(t>1)return;
 	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	//printf("%d  ",t);
-	//if(t<5)return;
+	if(t>0)return;
 	t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
-	printf("%d",t);
-	if(t<1)return;
+	//printf("%d",t);
+	if(t>0)return;
 	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	// printf("%d",t);
-	// if(t<5)return;
-	if(t){
+	if(t>0)return;
+	//if(t){
 		int j=0;
 		// char s="";
 		for(j=0;j<8;j++){
@@ -55,7 +55,7 @@ void loop()
 		// printf("%s\n",s);
 		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 		pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	}
+	//}
 }
 
 int main(){
