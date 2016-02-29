@@ -49,9 +49,9 @@ void loop()
 		for(j=0;j<8;j++){
 			t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 			// s+=t;
-			printf("%d\n",t);
+			printf("%d	",t);
 		}
-		// printf("%s\n",s);
+		printf("%s\n","");
 		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
 		pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
 	//}
