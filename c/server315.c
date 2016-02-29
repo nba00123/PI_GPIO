@@ -32,30 +32,33 @@ int setup()
 }
 void loop()
 {
-	
-	int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
-	if(t>1)return;
-	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	//printf("%d  ",t);
-	if(t>0)return;
-	t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
-	//printf("%d",t);
-	if(t>0)return;
-	t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	// printf("%d",t);
-	if(t>0)return;
-	//if(t){
-		int j=0;
-		// char s="";
-		for(j=0;j<8;j++){
-			t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
-			// s+=t;
-			printf("%d",t);
-		}
-		// printf("%s\n",s);
-		pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
-		pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	//}
+	int t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+	printf("%d		",t);
+
+
+	// int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
+	// if(t>1)return;
+	// t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+	// //printf("%d  ",t);
+	// if(t>=0)return;
+	// t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
+	// //printf("%d",t);
+	// if(t>=0)return;
+	// t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+	// // printf("%d",t);
+	// if(t>=0)return;
+	// //if(t){
+	// 	int j=0;
+	// 	// char s="";
+	// 	for(j=0;j<8;j++){
+	// 		t = pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
+	// 		// s+=t;
+	// 		printf("%d\n",t);
+	// 	}
+	// 	// printf("%s\n",s);
+	// 	pulseIn(inputPin, HIGH, 2); // 读出脉冲时间
+	// 	pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+	// //}
 }
 
 int main(){
