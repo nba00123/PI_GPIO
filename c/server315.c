@@ -32,10 +32,10 @@ int setup()
 }
 void loop()
 {
-	int t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
-	printf("%d		",t);
-
-
+	int a = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
+	
+	int b = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
+	printf("%d+%d	",a,b);
 	// int t = pulseIn(inputPin, LOW, 2); // 读出脉冲时间
 	// if(t>1)return;
 	// t = pulseIn(inputPin, HIGH, 10); // 读出脉冲时间
